@@ -294,6 +294,11 @@ You can also use a regular expression to search for matches by starting and endi
 {{ tag.name|lower|replace('/[^\\w]+/', '-') }}
 ```
 
+::: tip
+Any backslashes in the regular expression will need to be double-escaped '`\\`' for them to work properly. As twig will remove the first backslash so when it gets to craft it will only see one. When you pass something that looks like a regex into the |replace filter,  preg_replace() is called behind the scenes, so |replace can do anything preg_replace() can do.
+:::
+
+
 ## `rss`
 
 Outputs a date in the format required for RSS feeds (`D, d M Y H:i:s O`).
